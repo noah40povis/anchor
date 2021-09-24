@@ -8,19 +8,19 @@ const anchor = require('@project-serum/anchor');
 anchor.setProvider(anchor.Provider.local());
 
 async function main() {
-  // #region main
-  // Read the generated IDL.
-  const idl = JSON.parse(require('fs').readFileSync('./target/idl/basic_0.json', 'utf8'));
+    // #region main
+    // Read the generated IDL.
+    const idl = JSON.parse(require('fs').readFileSync('./target/idl/basic_0.json', 'utf8'));
 
-  // Address of the deployed program.
-  const programId = new anchor.web3.PublicKey('<YOUR-PROGRAM-ID>');
+    // Address of the deployed program.
+    const programId = new anchor.web3.PublicKey('6t8V4dQaA3N4Tp66SjxMQMgnHaqpuNHRSfLMsSQhu7sm');
 
-  // Generate the program client from IDL.
-  const program = new anchor.Program(idl, programId);
+    // Generate the program client from IDL.
+    const program = new anchor.Program(idl, programId);
 
-  // Execute the RPC.
-  await program.rpc.initialize();
-  // #endregion main
+    // Execute the RPC.
+    await program.rpc.initialize();
+    // #endregion main
 }
 
 console.log('Running client.');
